@@ -1,7 +1,8 @@
+//This is my Skills Database
 const skills = [
-    { text: 'Patience', need_to_work_on: true, _id: 8675309 },
-    { text: 'Persistence', need_to_work_on: false, _id: 1445685 },
-    { text: 'Planning', need_to_work_on: true, _id: 2410199 },
+    { text: 'Patience', need_to_work_on: true, _id: 867530 },
+    { text: 'Persistence', need_to_work_on: false, _id: 144568 },
+    { text: 'Planning', need_to_work_on: true, _id: 241019 },
 ]
 
 const find = (conditions, callback) => {
@@ -20,6 +21,18 @@ const find = (conditions, callback) => {
     }
 }
 
-export { 
-	find
+const findById = (id, callback) => {
+    try {
+        const skill = skills.find(skill => skill._id === parseInt(id))
+        if (!skill) throw new Error('No skill was found')
+        return callback(null, skill)
+    } catch (error) {
+        console.log(error)
+        return callback(error, null)
+    }
+}
+
+export {
+    find,
+    findById
 }

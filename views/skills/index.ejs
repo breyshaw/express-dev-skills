@@ -1,7 +1,9 @@
+<!-- This is my skills view -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,12 +20,13 @@
             <ul>
                 <% skills.forEach(function(skill) { %>
                     <li>
-                        <%= skill.text %>
+                        <a href="/skills/<%= skill._id %>"><%= skill.text %></a>
                             -
                             <%= skill.need_to_work_on ? 'Need to work on' : 'Im doing well on this skill' %>
                     </li>
                     <% }) %>
             </ul>
+            <a href="/">Take me home</a>
 </body>
 
 </html>
