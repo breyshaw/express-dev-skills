@@ -20,6 +20,9 @@
             <ul>
                 <% skills.forEach(function(skill) { %>
                     <li>
+                        <form action="/skills/<%= skill._id %>?_method=delete" method="POST" class='delete-form'>
+                            <button type="submit">X</button>
+                        </form>
                         <a href="/skills/<%= skill._id %>"><%= skill.text %></a>
                             -
                             <%= skill.need_to_work_on ? 'Need to work on' : 'Im doing well on this skill' %>
