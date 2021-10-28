@@ -21,7 +21,20 @@ function show(req,res) {
     }) 
 }
 
+function newSkill(req,res) {
+    res.render('skills/new')
+}
+
+function create(req,res) {
+ skillDb.create(req.body, function(error, skill) {
+     res.redirect('/skills')
+ })
+
+}
+
 export {
     index,
-    show
+    show,
+    newSkill as new,
+    create
 }
